@@ -1,0 +1,18 @@
+<div class="todo--container">
+    <div class="header">
+      <h2>{{ apptitle }}</h2>
+      <input type="text"
+             (keydown.enter)="addTodoItem()"
+             (input)="inputTodoItemText($event)"
+             [placeholder]="placeholderText">
+      <span class="addbutton" (click)="addTodoItem()" >Add</span></div>
+    <div class="todoitem--container">
+      <div *ngFor="let todo of todos; let evenItem = even; let oddItem = odd" (click)="toggleItemState(todo)" >
+        <div class="todoitem" [ngClass]="changeItemClass(todo)">{{ todo.content }} 
+          <span class="deletebutton" (click)="deleteItem(todo)">x</span>
+        </div>
+      </div>
+    </div>
+</div>
+
+
